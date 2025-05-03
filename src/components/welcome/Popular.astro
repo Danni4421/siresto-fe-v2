@@ -1,0 +1,73 @@
+---
+import chickenOne from "../../assets/menus/chicken-1.png"
+import chickenTwo from "../../assets/menus/chicken-2.png"
+import gudekOne from "../../assets/menus/gudek-1.png"
+import sateOne from "../../assets/menus/sate-1.png"
+
+interface Menu {
+    href: string,
+    image: string,
+}
+
+const menus: Menu[] = [
+    { href: "/menu/chicken-1", image: chickenOne.src },
+    { href: "/menu/gudek-1", image: gudekOne.src },
+    { href: "/menu/sate-1", image: sateOne.src },
+    { href: "/menu/chicken-2.png", image: chickenTwo.src }
+]
+---
+
+<section id="popular-menus" class="py-16 max-w-screen overflow-hidden">
+    <div>
+        <div class="flex flex-col items-center max-w-xl text-center mx-auto mb-12">
+            <h3 class="text-3xl font-semibold mb-4">Menu Terlaris</h3>
+            <p class="text-gray-600">Cicipi hidangan yang paling banyak dipesan oleh pelanggan kami. Pilihan terbaik yang pasti memuaskan selera Anda</p>
+        </div>
+        
+        <div class="relative overflow-hidden p-3">
+            <div class="flex animate-scroll gap-4">
+                {menus.map((menu) => (
+                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500">
+                        <div class="relative w-full h-full overflow-hidden rounded-lg">
+                            <img 
+                                src={menu.image}
+                                alt="Popular menu image"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                        </div>
+                    </div>
+                ))}
+                {menus.map((menu) => (
+                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500">
+                        <div class="relative w-full h-full overflow-hidden rounded-lg">
+                            <img 
+                                src={menu.image}
+                                alt="Popular menu image"
+                                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-300px * 4));
+        }
+    }
+    
+    .animate-scroll {
+        animation: scroll 20s linear infinite;
+    }
+    
+    .animate-scroll:hover {
+        animation-play-state: paused;
+    }
+</style>
