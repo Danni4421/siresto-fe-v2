@@ -18,7 +18,7 @@ const menus: Menu[] = [
 ---
 
 <section id="popular-menus" class="py-16 max-w-screen overflow-hidden">
-    <div>
+    <div class="flex flex-col items-center">
         <div class="flex flex-col items-center max-w-xl text-center mx-auto mb-12">
             <h3 class="text-3xl font-semibold mb-4">Menu Terlaris</h3>
             <p class="text-gray-600">Cicipi hidangan yang paling banyak dipesan oleh pelanggan kami. Pilihan terbaik yang pasti memuaskan selera Anda</p>
@@ -27,8 +27,8 @@ const menus: Menu[] = [
         <div class="relative overflow-hidden p-3">
             <div class="flex animate-scroll gap-4">
                 {menus.map((menu) => (
-                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500">
-                        <div class="relative w-full h-full overflow-hidden rounded-lg">
+                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500 cursor-pointer">
+                        <div class="relative w-full h-full overflow-hidden rounded-lg brightness-75 hover:brightness-100 transition-all">
                             <img 
                                 src={menu.image}
                                 alt="Popular menu image"
@@ -38,8 +38,8 @@ const menus: Menu[] = [
                     </div>
                 ))}
                 {menus.map((menu) => (
-                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500">
-                        <div class="relative w-full h-full overflow-hidden rounded-lg">
+                    <div class="min-w-[300px] h-72 flex-shrink-0 group hover:-translate-y-2 transition-transform duration-500 cursor-pointer">
+                        <div class="relative w-full h-full overflow-hidden rounded-lg brightness-75 hover:brightness-100 transition-all">
                             <img 
                                 src={menu.image}
                                 alt="Popular menu image"
@@ -50,7 +50,12 @@ const menus: Menu[] = [
                 ))}
             </div>
         </div>
+
+        <button class="px-8 py-4 bg-[#1f1f1f] text-white rounded-lg mt-5 hover:bg-black cursor-pointer transition-colors">
+            Lihat Semua Menu
+        </button>
     </div>
+
 </section>
 
 <style>

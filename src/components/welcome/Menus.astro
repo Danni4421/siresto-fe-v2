@@ -1,0 +1,50 @@
+---
+interface Menu {
+    name: string;
+    description: string;
+    price: number;
+    image: string;
+}
+
+interface MenuProps {
+    class?: string;
+    menus?: Menu[];
+}
+
+const { menus = [], class: className }: MenuProps = Astro.props;
+---
+
+<section id="menus" class=`grid grid-cols-1 md:grid-cols-3 ${className}`>
+    <div class="md:col-span-1 p-8">
+        <div class="flex flex-col gap-4">
+            <h3 class="text-2xl font-semibold">
+                Menu yang wajib kamu coba
+            </h3>
+            <p>
+                Inilah hidangan-hidangan spesial yang wajib kamu coba! Setiap menu telah dipilih dengan cermat untuk memberikan rasa yang luar biasa dan pengalaman kuliner yang tak terlupakan. Jangan lewatkan kesempatan untuk mencicipi kelezatannya!
+            </p>
+            <button class="max-w-72 px-8 py-4 border border-gray-400 rounded-xl cursor-pointer hover:border-gray-600 transition-colors">
+                Lihat Semua Menu
+            </button>
+        </div>
+    </div>
+    <div class="md:col-span-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-7xl mx-auto mt-8 px-4">
+            {menus.map((menu) => (
+                <div class="flex flex-col items-center gap-4 border border-gray-100 rounded-lg p-4">
+                    <img src={menu.image} alt={menu.name} class="w-full h-48 object-cover rounded-lg" />
+                    <div class="w-full text-left">
+                        <h3 class="text-xl font-semibold">{menu.name}</h3>
+                        <p class="text-gray-500">{menu.description}</p>
+                        <p class="text-lg font-bold mt-3">
+                            Rp {menu.price.toLocaleString()}
+                        </p>
+                    </div>
+                    <button class="w-full mt-auto px-4 py-2 bg-[#FF4C00] text-white rounded-lg hover:bg-[#FF4C00]/80 transition-colors">
+                        Tambah ke Keranjang
+                    </button>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

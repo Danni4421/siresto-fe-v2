@@ -1,15 +1,18 @@
 ---
-import Navbar from './Navbar.astro';
+import Navbar from './navbar/Navbar.astro';
 import Popular from './welcome/Popular.astro'
+import Services from './welcome/Services.astro';
+import Footer from './Footer.astro';
 
 import hero from '../assets/hero.jpg';
 import selectedMenu from '../assets/ayam-bakar.jpg'
+import Menus from './welcome/Menus.astro';
 ---
 
-<div>
+<div class="flex flex-col items-center justify-center min-h-screen">
 	<Navbar />
 	
-	<section id="hero" class="relative w-full min-h-[756px]">
+	<section id="hero" class="relative w-full min-h-[564px]">
 		<img 
 			src={hero.src} 
 			class="absolute inset-0 w-full h-full object-cover"
@@ -44,4 +47,64 @@ import selectedMenu from '../assets/ayam-bakar.jpg'
 	</section>
 
 	<Popular />
+	<Services />
+	<Menus 
+		menus={[
+			{
+				name: "Ayam Bakar",
+				description: "Ayam bakar dengan bumbu khas Siresto",
+				price: 50000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Nasi Goreng",
+				description: "Nasi goreng spesial dengan telur mata sapi",
+				price: 30000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Sate Ayam",
+				description: "Sate ayam dengan bumbu kacang",
+				price: 40000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Mie Goreng",
+				description: "Mie goreng spesial dengan sayuran",
+				price: 25000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Es Teh Manis",
+				description: "Es teh manis segar",
+				price: 10000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Kopi Susu",
+				description: "Kopi susu Siresto yang nikmat",
+				price: 15000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Roti Bakar",
+				description: "Roti bakar dengan selai coklat",
+				price: 20000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Pasta Spaghetti",
+				description: "Pasta spaghetti dengan saus marinara",
+				price: 60000,
+				image: selectedMenu.src,
+			},
+			{
+				name: "Salad Buah Segar",
+				description: "Salad buah segar dengan yogurt",
+				price: 30000,
+				image: selectedMenu.src,
+			},
+		]}
+	/>
+	<Footer />
 </div>
